@@ -1,0 +1,33 @@
+from torch.utils.data import DataLoader
+import pytorch_lightning as pl
+import torch
+from tqdm import tqdm
+import pickle
+from data_processing import SepsisDataset
+
+class SepsisDataloader(pl.LightningDataModule):
+    def __init__(self, data_dir, window_size, batch_size, num_workers=0):
+        super().__init__()
+        self.data_dir=data_dir
+        self. window_size=window_size
+        self.batch_size = batch_size
+        self.num_workers = num_workers
+        self.train_set = None
+        self.val_set = None
+
+    def setup(self):
+        # Instantiate datasets
+        self.train_set = SepsisDataset(data_dir = self.data_dir, is_train=True, window_size=self.window_size)
+        self.val_set = SepsisDataset(data_dir = self.data_dir, is_train=False, window_size=self.window_size)
+        self.train_set.setup()
+        self.val_set.setup()
+
+        # Scaling and zeroing NaN values in val_set with trained scaler:
+        self.val_set.windows = [torch.nan_to_num(torch.Tensor(self.train_set.scaler.transform(w)), nan=0.0) 
+                        for w in tqdm(self.val_set.windows, desc="Scaling validation data")]
+
+    def train_dataloader(self):
+        return DataLoader(self.train_set, batch_size=self.batch_size, num_workers=self.num_workers)
+
+    def val_dataloader(self):
+        return DataLoader(self.val_set, batch_size=self.batch_size, num_workers=self.num_workers)
