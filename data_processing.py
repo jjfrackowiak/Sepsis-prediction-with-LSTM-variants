@@ -124,22 +124,3 @@ class SepsisDataset(Dataset):
         else:
             target = torch.Tensor(np.concatenate((target, [target[-1]])))
         return windows, target
-
-if __name__ == '__main__':
-    # Instantiate datasets
-    train_set = SepsisDataset(data_dir = '../../files/challenge-2019/1.0.0/training', is_train=True, window_size=13)
-    val_set = SepsisDataset(data_dir = '../../files/challenge-2019/1.0.0/training', is_train=False, window_size=13)
-    train_set.setup()
-    val_set.setup()
-
-    # Scaling and zeroing NaN values in val_set with trained scaler:
-    val_set.windows = [torch.nan_to_num(torch.Tensor(train_set.scaler.transform(w)), nan=0.0) 
-                    for w in tqdm(val_set.windows, desc="Scaling validation data")]
-
-    # Save the training set
-    with open('data/train_set.pkl', 'wb') as train_file:
-        pickle.dump({'windows': train_set.windows, 'targets': train_set.targets}, train_file)
-
-    # Save the validation set
-    with open('data/val_set.pkl', 'wb') as val_file:
-        pickle.dump({'windows': val_set.windows, 'targets': val_set.targets}, val_file)
