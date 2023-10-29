@@ -1,5 +1,7 @@
 # Sepsis-prediction-with-LSTM-variants
-Continuation of https://github.com/jjfrackowiak/Sepsis-prediction-with-TCN. Repository dedicated for two currently developed implementations of two variants of LSTM-based neural net* on the task of early sepsis prediction (subject of Physionet challange 2019).
+[Continuation of https://github.com/jjfrackowiak/Sepsis-prediction-with-TCN] 
+
+Repository dedicated for two currently developed implementations of two variants of LSTM-based neural net* on the task of early sepsis prediction (subject of Physionet challange 2019).
 
 \* Bidirectional LSTM (BDLSTM) and BiDirectional LSTM with additional convolutional layers (CNN-BDLSTM) and hidden_layer of size 64. 
 
