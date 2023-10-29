@@ -15,9 +15,8 @@ Both models were trained using a sliding window approach, predicting one step fo
 | Balanced Accuracy (cut-off at 0.3) | 0.69699 | 0.70610 |
 | AUC Score | 0.79287  | 0.80023 |
 | Weighted Loss* | 0.432 | 0.434 |
-| Positive class frequency | 4563/301643 | |
 
-\* Because of severe class imbalance nn.BCEWithLogitsLoss() with pos_weight = 10 was utilised. Weightening may cause the loss value to be inflated and not interpretable in absolute terms.
+\* Because of severe class imbalance (4563 positives for 301643 observations in test set) nn.BCEWithLogitsLoss() with pos_weight = 10 was utilised. Weightening may cause the loss value to be inflated and not interpretable in absolute terms.
 
 #### Loss throughout 10 epochs for BDLSTM:
 ![image](https://github.com/jjfrackowiak/Sepsis-prediction-with-LSTM-variants/assets/84077365/35674c75-6416-48ec-94c2-5612bf2e16c2)
