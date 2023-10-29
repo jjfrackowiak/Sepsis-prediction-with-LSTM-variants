@@ -14,8 +14,8 @@ Both models were trained using a sliding window approach, predicting one step fo
 | ------------- | ------------- | ------------- |
 | Balanced Accuracy (cut-off at 0.3) | 0.69699 | 0.70610 |
 | AUC Score | 0.79287  | 0.80023 |
-| Weighted Loss* | 0.432 |  |
-| Positive class frequency | 4563/301643 |
+| Weighted Loss* | 0.432 | 0.434 |
+| Positive class frequency | 4563/301643 | |
 
 \* Because of severe class imbalance nn.BCEWithLogitsLoss() with pos_weight = 10 was utilised. Weightening may cause the loss value to be inflated and not interpretable in absolute terms.
 
