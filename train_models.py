@@ -36,10 +36,11 @@ def main(args):
 
     # Initialize Trainer
     trainer = Trainer(max_epochs=num_epochs)
-
+    trainer_1 = Trainer(max_epochs=num_epochs)
+    
     # Start training
     trainer.fit(model, train_loader, val_loader)
-    trainer.fit(model_1, train_loader, val_loader)
+    trainer_1.fit(model_1, train_loader, val_loader)
 
     FILE = "Sepsis_BDLSTM_model.pth"
     FILE_1 = "Sepsis_BDLSTM2_model.pth"
