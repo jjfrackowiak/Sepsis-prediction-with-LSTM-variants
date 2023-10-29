@@ -23,7 +23,7 @@ Both models were trained using a sliding window approach, predicting one step fo
 ![image](https://github.com/jjfrackowiak/Sepsis-prediction-with-LSTM-variants/assets/84077365/35674c75-6416-48ec-94c2-5612bf2e16c2)
 
 #### Loss throughout 10 epochs for CNN-BDLSTM:
-
+![image](https://github.com/jjfrackowiak/Sepsis-prediction-with-LSTM-variants/assets/84077365/3918e186-ddbc-4c82-9b0b-5cc1e4e8ce96)
 
 #### ROC curve for CNN-LSTM (validation set):
 ![image](https://github.com/jjfrackowiak/Sepsis-prediction-with-LSTM-variants/assets/84077365/58c45096-31c6-4618-ad03-2894ccc5c160)
