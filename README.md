@@ -1,12 +1,12 @@
 # Sepsis-prediction-with-LSTM-variants
 [Continuation of https://github.com/jjfrackowiak/Sepsis-prediction-with-TCN] 
 
-Repository dedicated for two currently developed implementations of two variants of LSTM-based neural net* on the task of early sepsis prediction (subject of Physionet challange 2019).
+Repository dedicated for currently developed implementations of two variants of LSTM* on the task of early sepsis prediction (subject of Physionet challange 2019).
 
-\* Bidirectional LSTM (BDLSTM) and BiDirectional LSTM with additional convolutional layers (CNN-BDLSTM) and hidden_layer of size 64. 
+\* Bidirectional LSTM (BDLSTM) and BiDirectional LSTM with additional convolutional layers (CNN-BDLSTM). 
 
 In case of CNN-LSTM, following hyperparameters values were selected: (lookback=10, filters_1 = filters2 = filters3 = 64, dropout=0.3). Choosing filters size equal to 128 did not increase any of the performance metrics.
-Both models were trained using a sliding window approach, predicting one step forward based on selected number of most recent steps (here 13).
+Both models were trained using a sliding window approach, predicting one step forward based on 13 most recent steps with a hidden layer of size 64.
 
 ### Training results:
 
