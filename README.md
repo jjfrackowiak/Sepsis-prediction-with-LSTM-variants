@@ -5,7 +5,7 @@ Repository dedicated for two currently developed implementations of two variants
 
 \* Bidirectional LSTM (BDLSTM) and BiDirectional LSTM with additional convolutional layers (CNN-BDLSTM) and hidden_layer of size 64. 
 
-In case of CNN-LSTM, following hyperparameters values were selected: (lookback=10, filters_1 = filters2 = filters3 = 64, dropout=0.3). Choosing filters to be 128 did not increase any of the performance metrics.
+In case of CNN-LSTM, following hyperparameters values were selected: (lookback=10, filters_1 = filters2 = filters3 = 64, dropout=0.3). Choosing filters size equal to 128 did not increase any of the performance metrics.
 Both models were trained using a sliding window approach, predicting one step forward based on selected number of most recent steps (here 13).
 
 ### Training results:
