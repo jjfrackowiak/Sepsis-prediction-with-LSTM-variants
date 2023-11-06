@@ -53,15 +53,6 @@ class BDLSTM(pl.LightningModule):
 
         return loss
 
-    def predict_step(self, batch, batch_idx):
-        x, y = batch
-        if batch_idx == 0:
-            self.init_hidden(x, 1, x.shape[0], self.hidden_size)
-
-        output, hidden = self(x)
-
-        return self.trainer.datamodule.y_scaler.inverse_transform(output.cpu().numpy())
-
     def validation_step(self, batch, batch_idx):
         x, y = batch
         output, hidden = self(x)
